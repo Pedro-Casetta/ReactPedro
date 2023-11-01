@@ -1,14 +1,30 @@
 import './Letreiro.css';
+import React, { useState, useEffect } from 'react';
 
-const frase = "Conheça a Fatec";
-let tamanho = 0;
+function Letreiro() {
+    const frase = "Conheça a Fatec";
+    let tamanho = 0;
+    const [PedacoFrase, setPedacoFrase] = useState(frase.substring(0,tamanho));
+    
+    useEffect(() => {
+        const IdIntervalo = setInterval(() => {
+            tamanho = tamanho + 1;
+            setPedacoFrase(frase.substring(0,tamanho));
 
-function PreencherLetreiro() {
-    let pedaco_frase = frase.substring(0,tamanho);
-    tamanho = tamanho + 1;
-    if (tamanho > frase.length)
-        tamanho = 1;
-    return <h1>{pedaco_frase}</h1>
+            if (tamanho === frase.length) {
+                tamanho = 0;
+            }
+
+        }, 450);
+
+
+        return () => {
+            clearInterval(IdIntervalo);
+        };
+
+    }, []);
+
+    return <h1>{PedacoFrase}</h1>
     }
 
-export default PreencherLetreiro;
+export default Letreiro;
