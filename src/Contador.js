@@ -77,7 +77,6 @@ export default function Contador() {
                 </div>
             </div>
         </div>
-        <a href="index.html">Voltar</a>
         </>
     );
 }
