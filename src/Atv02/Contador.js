@@ -11,10 +11,10 @@ export default function Contador() {
       }, [TotalHomem, TotalMulher]);
 
     const maisHomem = () => {setTotalHomem(TotalHomem + 1)};
-    const menosHomem = () => {setTotalHomem(TotalHomem - 1)};
+    const menosHomem = () => {if (TotalHomem > 0) setTotalHomem(TotalHomem - 1)};
 
     const maisMulher = () => {setTotalMulher(TotalMulher + 1)};
-    const menosMulher = () => {setTotalMulher(TotalMulher - 1)};
+    const menosMulher = () => {if (TotalMulher > 0) setTotalMulher(TotalMulher - 1)};
 
     const zerar = () => {
         setTotal(0);
