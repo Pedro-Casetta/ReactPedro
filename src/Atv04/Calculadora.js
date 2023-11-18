@@ -49,7 +49,7 @@ export default function Calculadora() {
                     <button id="AC" onClick="LimpaDisplay()" className="btn btn-light rounded-circle py-4 ms-5 btn-lg" style={{ width: 100 + "px"}}>AC</button>
                     <button id="+/-" onClick="MudaSinal()" className="btn btn-light rounded-circle py-4 ms-5 btn-lg" style={{ width: 100 + "px"}}>+/-</button>
                     <button id="%" onClick="Porcentagem()" className="btn btn-light rounded-circle py-4 ms-5 btn-lg" style={{ width: 100 + "px"}}>%</button>
-                    <button id="/" onClick={addDisplay('/')} className="btn btn-warning rounded-circle py-4 ms-5 btn-lg" style={{ width: 100 + "px"}}>/</button>
+                    <button id="/" onClick={ () => addDisplay('/')} className="btn btn-warning rounded-circle py-4 ms-5 btn-lg" style={{ width: 100 + "px"}}>/</button>
                 </div>
                 <div id="linha3" className="row mx-auto mt-3 py-1">
                     <button id="7" onClick="AddDisplay('7')" className="btn btn-secondary rounded-circle py-4 ms-5 btn-lg" style={{ width: 100 + "px"}}>7</button>
