@@ -3,32 +3,45 @@ import embaralharImagem from "./embaralharImagem";
 
 export default function Memoria() {
     
-    const array_imagem = embaralharImagem();
-    const array_peca_selecionada = [];
+    const [ArrayImagem, setArrayImagem] = useState([]);
+    const [ArrayPecaSelecionada, setArrayPecaSelecionada] = useState([]);
     const [QtdSelecionado, setQtdSelecionado] = useState(0);
 
+    const addArrayPecaSelecionada = (id, src) => {
+        const Array = [...ArrayPecaSelecionada, id, src];
+    
+        setArrayPecaSelecionada(Array);
+      };
+
+    useEffect(() => {
+
+        const arrayImagensEmbaralhadas = embaralharImagem();
+        setArrayImagem(arrayImagensEmbaralhadas);
+        
+    }, []);
+    
     useEffect(() => {
 
         if(QtdSelecionado === 2) {
             setTimeout(() => {
 
-                if(array_peca_selecionada[1] != array_peca_selecionada[3]) {
-                    document.getElementById(array_peca_selecionada[0].style.display = "none");
-                    document.getElementById(array_peca_selecionada[2].style.display = "none");
+                if(ArrayPecaSelecionada[1] != ArrayPecaSelecionada[3]) {
+                    document.getElementById(ArrayPecaSelecionada[0]).style.display = "none";
+                    document.getElementById(ArrayPecaSelecionada[2]).style.display = "none";
                 }
 
             }, 100);
 
             setQtdSelecionado(0);
+            setArrayPecaSelecionada([]);
         }
         
-    }, [QtdSelecionado, array_peca_selecionada]);
+    }, [QtdSelecionado]);
 
     const virarPeca = (id) => {
         document.getElementById(id).style.display = "inline";
 
-        array_peca_selecionada.push(id);
-        array_peca_selecionada.push(document.getElementById(id).src);
+        addArrayPecaSelecionada(id, document.getElementById(id).src);
         setQtdSelecionado(QtdSelecionado + 1);
     };
     
@@ -40,26 +53,26 @@ export default function Memoria() {
                 </div>
                 <div id="linha2" className="row mx-auto mt-3 py-1">
                     <button onClick={() => {virarPeca(0)}} className="btn btn-light rounded-circle py-4 ms-5 btn-lg botao_calculadora">
-                        <img id="0" src={array_imagem[0]} style={{display: "none"}} />
+                        <img id="0" src={ArrayImagem[0]} style={{ display: "none"}} />
                     </button>
                     <button onClick={() => {virarPeca(1)}} className="btn btn-light rounded-circle py-4 ms-5 btn-lg botao_calculadora">
-                        <img id="1" src={array_imagem[1]} style={{display: "none"}}/>
+                        <img id="1" src={ArrayImagem[1]} style={{ display: "none"}}/>
                     </button>
                 </div>
                 <div id="linha3" className="row mx-auto mt-3 py-1">
                     <button onClick={() => {virarPeca(2)}} className="btn btn-light rounded-circle py-4 ms-5 btn-lg botao_calculadora">
-                        <img id="2" src={array_imagem[2]} style={{display: "none"}}/>
+                        <img id="2" src={ArrayImagem[2]} style={{ display: "none"}}/>
                     </button>
                     <button onClick={() => {virarPeca(3)}} className="btn btn-light rounded-circle py-4 ms-5 btn-lg botao_calculadora">
-                        <img id="3" src={array_imagem[3]} style={{display: "none"}}/>
+                        <img id="3" src={ArrayImagem[3]} style={{ display: "none"}}/>
                     </button>
                 </div>
                 <div id="linha4" className="row mx-auto mt-3 py-1">
                     <button onClick={() => {virarPeca(4)}} className="btn btn-light rounded-circle py-4 ms-5 btn-lg botao_calculadora">
-                        <img id="4" src={array_imagem[4]} style={{display: "none"}}/>
+                        <img id="4" src={ArrayImagem[4]} style={{ display: "none"}}/>
                     </button>
                     <button onClick={() => {virarPeca(5)}} className="btn btn-light rounded-circle py-4 ms-5 btn-lg botao_calculadora">
-                        <img id="5" src={array_imagem[5]} style={{display: "none"}}/>
+                        <img id="5" src={ArrayImagem[5]} style={{ display: "none"}}/>
                     </button>
                 </div>
             </div>
