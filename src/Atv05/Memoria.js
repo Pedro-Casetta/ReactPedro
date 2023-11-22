@@ -9,7 +9,7 @@ export default function Memoria() {
 
     useEffect(() => {
 
-        if(QtdSelecionado == 2) {
+        if(QtdSelecionado === 2) {
             setTimeout(() => {
 
                 if(array_peca_selecionada[1] != array_peca_selecionada[3]) {
@@ -22,7 +22,7 @@ export default function Memoria() {
             setQtdSelecionado(0);
         }
         
-    }, [QtdSelecionado]);
+    }, [QtdSelecionado, array_peca_selecionada]);
 
     const virarPeca = (id) => {
         document.getElementById(id).style.display = "inline";
