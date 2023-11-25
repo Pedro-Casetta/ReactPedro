@@ -1,5 +1,24 @@
 .botao_memoria{
+    background-color: skyblue;
     height: 245px;
     padding: 0;
     width: 245px;
+}
+
+.imagem_memoria{
+    height: 240px;
+    width: 240px;
+    display: none;
+}
+
+.parabens{
+    display: none;
+    position: absolute;
+    left: 500px;
+    top: 80px;
+    width: 500px;
+}
+
+.imagem_parabens{
+    width: 500px;
 }
